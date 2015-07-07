@@ -95,12 +95,12 @@ powershell "install_IIS_Features" do
 end
 
 #-- Install SMTP Server
-powershell "install_SMTP_Server" do
-	code <<-EOF
-	Import-Module ServerManager
-	Add-WindowsFeature -Name SMTP-Server
-	EOF
-end
+# powershell "install_SMTP_Server" do
+# 	code <<-EOF
+# 	Import-Module ServerManager
+# 	Add-WindowsFeature -Name SMTP-Server
+# 	EOF
+# end
 
 #-- Install IIS Management Service
 powershell "install_IIS_Mgmt_Service" do
