@@ -17,7 +17,8 @@ ftp_secret = ftp_path["key_name"]
 ftp_keypath = ftp_path["key_path"]
 
  #-- Decrypt and get credential information
-ftp_key = Chef::EncryptedDataBagItem.load_secret("ftp://#{ftp_server}/#{ftp_keypath}")
+#ftp_key = Chef::EncryptedDataBagItem.load_secret("ftp://#{ftp_server}/#{ftp_keypath}")
+ftp_key = Chef::EncryptedDataBagItem.load_secret("ftp://chef-admin.aws.csc-fsg.com/Chef-Key/encrypted_data_bag_secret")
 ftp_cred  = Chef::EncryptedDataBagItem.load("ftp", "user", ftp_key)
 ftp_user = ftp_cred["username"]
 ftp_password = ftp_cred["password"]
