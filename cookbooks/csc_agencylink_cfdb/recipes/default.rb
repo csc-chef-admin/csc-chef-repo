@@ -51,8 +51,9 @@ replay_result_path = cfdb_package["replay_result_path"]
 replay_working_path = cfdb_package["replay_working_path"]
 
 # Define Installer URLs
-installer_source_JRE = "ftp://#{ftp_user}:#{ftp_password}@#{ftp_server}/#{ftp_directory}/#{ftp_file_jre}"
-installer_source_Tomcat = "ftp://#{ftp_user}:#{ftp_password}@#{ftp_server}/#{ftp_directory}/#{ftp_file_tomcat}"
+passconv = "#{ftp_password}".gsub('@','%40')
+installer_source_JRE = "ftp://#{ftp_user}:#{passconv}@#{ftp_server}/#{ftp_directory}/#{ftp_file_jre}"
+installer_source_Tomcat = "ftp://#{ftp_user}:#{passconv}@#{ftp_server}/#{ftp_directory}/#{ftp_file_tomcat}"
 
 # PRE-STEPS: Create temporary directories
 directory 'C:\Temp' do
@@ -161,7 +162,8 @@ end
 # STEP 3: Extract COMMFW files
 # Step 3 substep 1: Get COMMFW archive
 remote_file "c:\\Temp\\COMMFW\\#{commfw_archive_name}" do
-  source "ftp://#{ftp_user}:#{ftp_password}@#{ftp_server}/#{ftp_directory}/#{commfw_archive_name}"
+  passconv = "#{ftp_password}".gsub('@','%40')
+  source "ftp://#{ftp_user}:#{passconv}@#{ftp_server}/#{ftp_directory}/#{commfw_archive_name}"
   action :create_if_missing
 end
 
@@ -185,7 +187,8 @@ end
 # STEP 5: Install SQL Server 2012
 # Step 5 substep 1: Get SQL Server install file
 remote_file "c:\\Temp\\SQLInstall\\#{ftp_file_sqlserver}" do
-  source "ftp://#{ftp_user}:#{ftp_password}@#{ftp_server}/#{ftp_directory}/#{ftp_file_sqlserver}"
+  passconv = "#{ftp_password}".gsub('@','%40')
+  source "ftp://#{ftp_user}:#{passconv}@#{ftp_server}/#{ftp_directory}/#{ftp_file_sqlserver}"
   action :create_if_missing
 end
 
