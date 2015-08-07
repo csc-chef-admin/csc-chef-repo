@@ -9,3 +9,5 @@ validation_client_name   "csc-fsg-aws-validator"
 validation_key           "#{current_dir}/csc-fsg-aws-validator.pem"
 chef_server_url          "https://chef-server.aws.csc-fsg.com/organizations/csc-fsg-aws"
 cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:editor] = "notepad"
+knife[:secret_file] = "#{current_dir}/encrypted_data_bag_secret"

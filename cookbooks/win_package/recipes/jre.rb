@@ -12,10 +12,12 @@ ftp_cred  = Chef::EncryptedDataBagItem.load("ftp", "user", ftp_key)
 ftp_user = ftp_cred["username"]
 ftp_password = ftp_cred["password"] 
 
-#- Get FTP package information for Notepad++ from Data_Bag_Item (ftp, path)
-ftp_package = data_bag_item('ftp', 'package')
-ftp_file_jre = ftp_package["Install_File_JRE"]
-ftp_file_jre_path = ftp_package["Install_File_JRE_Install"]
+#- Get FTP package information for JRE from Data_Bag packages
+jre_package = data_bag_item('packages', 'installers')
+ftp_file_jre = jre_package["jre"]
+
+jre_path = data_bag_item('packages', 'path')
+ftp_file_jre_path = jre_path["jre_directory"]
 
 # Define Installer URLs
 installer_source_JRE = "ftp://#{ftp_user}:#{ftp_password}@#{ftp_url}/#{ftp_file_jre}"
@@ -26,4 +28,5 @@ windows_package 'Java 8 Update 45 (64-bit)' do
 	action :install
 	installer_type :custom
 	options "/s INSTALLDIR=#{ftp_file_jre_path}"
+	not_if { ::File.directory?("#{ftp_file_jre_path}") }
 end

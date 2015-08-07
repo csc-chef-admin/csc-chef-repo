@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: packages
+# Cookbook Name:: csc_agencylink
 # Recipe:: default
 #
 # Copyright 2015, YOUR_COMPANY_NAME

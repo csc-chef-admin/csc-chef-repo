@@ -1,5 +1,5 @@
-packages Cookbook
-=================
+csc_agencylink Cookbook
+=======================
 TODO: Enter the cookbook description here.
 
 e.g.
@@ -11,14 +11,14 @@ TODO: List your cookbook requirements. Be sure to include any requirements this 
 
 e.g.
 #### packages
-- `toaster` - packages needs toaster to brown your bagel.
+- `toaster` - csc_agencylink needs toaster to brown your bagel.
 
 Attributes
 ----------
 TODO: List your cookbook attributes here.
 
 e.g.
-#### packages::default
+#### csc_agencylink::default
 <table>
   <tr>
     <th>Key</th>
@@ -27,7 +27,7 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['packages']['bacon']</tt></td>
+    <td><tt>['csc_agencylink']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -36,17 +36,17 @@ e.g.
 
 Usage
 -----
-#### packages::default
+#### csc_agencylink::default
 TODO: Write usage instructions for each cookbook.
 
 e.g.
-Just include `packages` in your node's `run_list`:
+Just include `csc_agencylink` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[packages]"
+    "recipe[csc_agencylink]"
   ]
 }
 ```
