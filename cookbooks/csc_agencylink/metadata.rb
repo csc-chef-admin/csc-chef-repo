@@ -1,4 +1,4 @@
-name             'csc_agencylink_cfdb'
+name             'csc_agencylink'
 maintainer       'Chef Admin'
 maintainer_email 'chef-admin@aws.csc-fsg.com'
 license          'All rights reserved'
