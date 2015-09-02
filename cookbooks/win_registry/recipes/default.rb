@@ -8,7 +8,7 @@
 
 # Set Primary DNS Suffix on target Windows node
 windows_registry 'HKLM\SYSTEM\CurrentControlSet\services\Tcpip\Parameters' do
-	values 'NV Domain' => 'luis.net'
+	values 'NV Domain' => 'csc-fsg-aws.com'
 	type :string
 end
 
